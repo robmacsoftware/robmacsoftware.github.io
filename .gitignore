@@ -1,0 +1,17 @@
+# Local preview launcher; retain it on this computer only.
+/RobMac_Local_Preview.bat
+/RobMac_Local_Preview.py
+/.local-preview/
+
+# Local editor and operating-system files.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local credentials and temporary files must not enter source control.
+.env
+.env.*
+*.log
+__pycache__/
