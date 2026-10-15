@@ -15,3 +15,6 @@ Desktop.ini
 .env.*
 *.log
 __pycache__/
+
+# Approved policy drafts are local references, not public website assets.
+/privacy_review_sources/
