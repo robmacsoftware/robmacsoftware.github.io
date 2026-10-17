@@ -1,116 +1,77 @@
 # RobMac Software
 
-Local foundation for the bilingual RobMac Software website. English is served
-at `/` and Spanish at `/es/`. Both pages use shared CSS and original SVG assets.
-Engineering Toolkit is presented as **In Development** / **En desarrollo**.
+Static bilingual website using semantic HTML, shared CSS, system fonts and the
+original brand SVGs. No JavaScript, frameworks, payment SDKs or build dependencies.
+Automatic light/dark themes use `prefers-color-scheme`.
 
-## Structure
+## Public routes
 
-```text
-index.html               English home page
-es/index.html            Spanish home page
-assets/css/styles.css    Shared responsive styles and automatic theme
-assets/images/           Original official SVG artwork (unchanged)
-.gitignore               Local-only files and credential exclusions
-README.md                Local development and scope notes
-```
+| English | Spanish | Purpose |
+| --- | --- | --- |
+| `/` | `/es/` | Brand and Engineering Toolkit introduction |
+| `/support/` | `/es/support/` | Optional voluntary contributions |
+| `/engineering-toolkit/privacy/` | `/engineering-toolkit/privacy/es/` | Engineering Toolkit privacy policies |
+
+Support pages reuse `assets/css/styles.css` and unchanged brand SVGs. They include
+canonical URLs, reciprocal English/Spanish and x-default alternate links, language
+navigation, home links, privacy information and secure external provider links.
+Engineering Toolkit remains free forever. Contributions confer no functionality,
+privileges, digital goods or services, exclusive content or rewards.
+Both homepages also offer compact voluntary-support cards inside the Contact
+section, beneath the existing email and GitHub links.
+
+Owner-selected destinations, without tracking parameters:
+
+- PayPal — international / USD: <https://www.paypal.com/ncp/payment/CKD4M9EU2QCD2>
+- Mercado Pago — Mexico / MXN: <https://link.mercadopago.com.mx/robmacsoftware>
+
+Payment processing takes place externally. No checkout widgets, forms, analytics,
+advertising, external fonts, accounts or backend are included. Provider links
+announce new tabs and use `noopener noreferrer` plus `no-referrer`. Their presence
+does not establish Google Play eligibility or availability in every country.
 
 ## Local preview
 
-From this directory, double-click `RobMac_Local_Preview.bat`.
-It uses installed Python 3.12 (the `py -3.12` launcher or `python`), binds only
-to `127.0.0.1:8003`, and opens the English page in the default browser.
-PHP, Node.js and dependency installation are not required.
-
-- English: <http://127.0.0.1:8003/>
-- Spanish: <http://127.0.0.1:8003/es/>
-- Stop the server with **Ctrl+C** in its terminal.
-
-Alternatively, from this directory with Python 3.12:
+Double-click the ignored `RobMac_Local_Preview.bat`, or run Python 3.12:
 
 ```powershell
-python -B RobMac_Local_Preview.py
+python -B RobMac_Local_Preview.py --no-browser
 ```
 
-Run one preview server at a time. The helper copies only the seven explicit
-`PUBLIC_FILES` into a fresh `.local-preview/site-*` directory and serves that
-isolated copy. It never serves the repository directory. Git metadata, local
-launchers, README, unused SVG variants, credentials and unapproved pages are not
-copied. Missing pages and directories without an approved index return HTTP 404.
+The helper binds only to `127.0.0.1:8003` and serves an isolated temporary snapshot
+containing exactly 11 explicitly allowlisted public files. It never serves the
+repository directory. Stop with Ctrl+C; restart after public-file edits.
 
-The launcher, Python helper and `.local-preview/` are ignored by Git and remain
-local-only. Normal Ctrl+C shutdown removes that run's temporary copy; closing or
-forcibly terminating the process may leave an ignored copy. Existing project
-files and previous snapshots are never overwritten or deleted by the helper.
+Visit <http://127.0.0.1:8003/support/> or
+<http://127.0.0.1:8003/es/support/>. The existing home and privacy pages are also
+available. Directory listings, Git metadata, launchers, README, review drafts and
+unknown routes are excluded. Keep the allowlist explicit; do not replace it with
+recursive copying. The local helper, launcher, snapshots and review materials are
+ignored and are not part of a future commit.
 
-After editing public files, stop and restart the launcher to refresh the copy.
-When adding an approved page or asset, explicitly add its relative file path to
-`PUBLIC_FILES` in `RobMac_Local_Preview.py`; do not replace the allowlist with
-recursive directory copying. The `--no-browser` option supports validation.
+## Phase 18 publication boundary
 
-## Implementation
+Both privacy policies include the owner-confirmed commitments and external
+contribution disclosures, revised October 16, 2026 for this authorized website
+release. Review drafts, remaining confirmations, validation evidence and completion
+reports remain in the ignored `privacy_review_sources/` directory and are excluded
+from the release. They are not public website pages.
 
-- Semantic HTML5, CSS3 and system fonts; no JavaScript or frameworks.
-- CSS `prefers-color-scheme` selects light or dark colors. A `picture` element
-  selects `RobMac_Logo_Claro.svg` on light backgrounds and
-  `RobMac_Logo_Oscuro.svg` on dark backgrounds. The color monogram retains a pale
-  backdrop in both themes; `RobMac_App_Black.svg` is the favicon.
-- Keyboard skip link, visible focus indicators, labeled navigation, current
-  language indicators, responsive layouts and equivalent English/Spanish copy.
-- Mobile and desktop language selectors occupy their natural reading positions;
-  CSS hides the inactive selector from layout, accessibility and keyboard focus.
-- Relative assets and alternate-language links work under the local preview.
-- Titles, descriptions, language attributes and viewport metadata are included.
-- All rendering assets are local. The email and official GitHub links are ordinary
-  visitor-initiated links. No trackers, third-party fonts, forms or remote scripts.
+The local allowlist update in `RobMac_Local_Preview.py` must be retained separately
+if transferring this checkout; Git will not include it automatically.
 
-## Scope and future work
+The contribution pages are separable from the app's distribution decision. Creator
+recipient eligibility, processor-fee treatment, operational merchant-data details,
+checkout-specific provider notices and the full app-to-checkout journey still
+require review. The owner's confirmed privacy commitments are reflected in both
+languages; they apply to processing controlled by RobMac Software.
+Neither the website nor the absence of digital rewards establishes Google Play
+approval. The owner authorized committing these eight website source files and a
+normal push to `origin/main`, allowing the existing GitHub Pages mechanism to
+publish them. This authorization does not cover app publication, Play Console,
+payment accounts or changes to Git/hosting settings.
 
-This phase is local implementation only. It does not enable hosting, configure
-GitHub Pages, publish files or modify repository/organization settings.
-No Engineering Toolkit source files are part of this work.
-
-The following privacy routes are reserved and deliberately **not implemented**:
-
-```text
-/engineering-toolkit/privacy/
-/engineering-toolkit/privacy/es/
-```
-
-Privacy content requires separate technical approval. There are no placeholder
-policies or public links to those routes. No download links, release dates,
-screenshots, testimonials or store availability are asserted.
-
-Both pages include self-referencing English, Spanish and `x-default` alternate
-links using `https://robmacsoftware.github.io/` and
-`https://robmacsoftware.github.io/es/`. Visible navigation and assets remain
-relative. Canonical URLs and deployment configuration remain future work.
-Do not publish or commit this phase without explicit approval.
-
-## Local validation performed
-
-- Both language pages and all referenced assets returned HTTP 200.
-- Basic HTML nesting, unique IDs, one H1 per page, image alternatives, metadata,
-  local asset paths and fragment/language destinations passed automated checks.
-- Both languages rendered without horizontal overflow at 320, 375, 640, 641,
-  768, 900 and 1280 CSS pixels. Original SVG images loaded at each size.
-- The browser's automatic dark theme selected the dark-background logo. Light
-  rendering was checked by temporarily inverting the theme media query in the
-  isolated preview copy only; original source was preserved and the copy restored.
-- Normal text and button color pairs exceeded 4.5:1 contrast in both themes
-  (minimum checked ratios: light 5.73:1, dark 7.82:1).
-- Keyboard focus, skip-to-main, product/contact anchors, back-to-top and language
-  switching in both directions passed browser checks. No console warnings or
-  errors appeared during those checks.
-- Actual Tab-key navigation matched visual order in both languages at mobile and
-  desktop widths; only one language selector was exposed at each breakpoint.
-- The isolated copy contained exactly the seven approved public files. Git
-  metadata, `.gitignore`, launchers, README, reserved privacy routes, directory
-  listings and unknown routes returned HTTP 404. The listener bound only to
-  `127.0.0.1:8003`.
-- The Windows launcher opened the default browser, and Ctrl+C stopped the server
-  and removed its run's copy. Original SVG hashes were unchanged. No dependencies
-  were installed; no commits or publishing were performed.
-
-These are local checks, not formal accessibility certification or exhaustive
-cross-browser/screen-reader testing. Production route handling remains untested.
+Phase 18 remains open. Phase 19 has not started. Local validation does not establish
+live availability; the release report records separate post-push HTTP and content
+verification. Website publication does not establish Google Play compliance or
+overall app-release readiness.
